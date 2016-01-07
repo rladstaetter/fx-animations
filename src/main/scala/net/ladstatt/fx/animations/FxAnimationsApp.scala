@@ -43,8 +43,7 @@ class FxAnimationsApp extends javafx.application.Application {
 }
 
 
-
-case class CircleAnimation(circles : Seq[Circle]) extends AnimationTimer {
+case class CircleAnimation(circles: Seq[Circle]) extends AnimationTimer {
 
   // every tick this method is called - you are free to do whatever you want
   // in this method. maybe animate something, maybe something else ...
@@ -63,21 +62,24 @@ class FxAnimationsController extends Initializable {
 
   @FXML var canvasAnchorPane: AnchorPane = _
 
+  var animationTimer: CircleAnimation = _
+
   def randColor(): Color = Color.color(Random.nextDouble, Random.nextDouble(), Random.nextDouble)
+
 
   override def initialize(location: URL, resources: ResourceBundle): Unit = {
 
-    val width  = canvasAnchorPane.getMinWidth
+    val width = canvasAnchorPane.getMinWidth
     val height = canvasAnchorPane.getMinHeight
 
     val circles: IndexedSeq[Circle] =
       for (i <- 1 to 2000) yield {
-        mkCircle(width.toInt, height.toInt, Random.nextInt(20) +1 )
+        mkCircle(width.toInt, height.toInt, Random.nextInt(20) + 1)
       }
 
     canvasAnchorPane.getChildren.addAll(circles: _*)
 
-    CircleAnimation(circles).start()
+    animationTimer = CircleAnimation(circles)
   }
 
 
@@ -85,6 +87,14 @@ class FxAnimationsController extends Initializable {
     val c = new Circle(Random.nextInt(width), Random.nextInt(height), Random.nextInt(maxRadius))
     c.setFill(randColor())
     c
+  }
+
+  def start(): Unit = {
+    animationTimer.start()
+  }
+
+  def stop(): Unit = {
+    animationTimer.stop()
   }
 
 }

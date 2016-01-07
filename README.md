@@ -1,4 +1,4 @@
-# AnimationTimer example application
+# JavaFX AnimationTimer example application
 
 ![AnimationTimerExample](AnimationTimerExample.png)
 

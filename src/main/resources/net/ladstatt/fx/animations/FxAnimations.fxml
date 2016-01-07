@@ -1,23 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
-<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.40"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.ladstatt.fx.animations.FxAnimationsController">
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.ladstatt.fx.animations.FxAnimationsController">
     <center>
     </center>
     <top>
-        <Label alignment="CENTER" prefHeight="50.0" prefWidth="800.0" text="AnimationTimer Example"
-               BorderPane.alignment="CENTER">
+        <Label alignment="CENTER" prefHeight="50.0" prefWidth="800.0" text="AnimationTimer Example" BorderPane.alignment="CENTER">
             <font>
-                <Font size="24.0"/>
+                <Font size="24.0" />
             </font>
         </Label>
     </top>
-    <center>
-        <AnchorPane fx:id="canvasAnchorPane" maxHeight="550.0" maxWidth="800.0" minHeight="550.0" minWidth="800.0"
-                    prefHeight="550.0" prefWidth="800.0" BorderPane.alignment="CENTER"/>
-    </center>
+   <center>
+      <AnchorPane fx:id="canvasAnchorPane" maxHeight="550.0" maxWidth="800.0" minHeight="550.0" minWidth="800.0" prefHeight="550.0" prefWidth="800.0" BorderPane.alignment="CENTER" />
+   </center>
+   <left>
+      <Button mnemonicParsing="false" onAction="#start" text="Start" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Button>
+   </left>
+   <right>
+      <Button mnemonicParsing="false" onAction="#stop" text="Stop" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+   </right>
 </BorderPane>
